@@ -1,0 +1,9 @@
+{
+  "event_id": "evt-092105-005-0001",
+  "event_type": "PART_INSTALLED",
+  "aggregate_type": "vehicle_configuration",
+  "aggregate_id": "vehicle-modification-handoff-001",
+  "occurred_at": "2026-09-20T12:00:00+08:00",
+  "version": 1,
+  "summary": "登记汽车改装合规交接的首条领域记录"
+}
