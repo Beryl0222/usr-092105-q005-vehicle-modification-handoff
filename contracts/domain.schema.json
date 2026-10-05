@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "汽车改装合规交接领域事件",
-  "description": "用于跨模块交换事实记录的公共信封。",
+  "description": "用于跨机构交换事实记录的公共信封。事件不可变：来源系统重试必须沿用原 event_id；多方就同一事实重报时共用 fact_key 以便去重。",
   "type": "object",
   "required": [
     "event_id",
@@ -21,13 +21,17 @@
     "event_type": {
       "type": "string",
       "enum": [
+        "PART_CERTIFIED",
+        "CERTIFICATE_REVOKED",
         "PART_INSTALLED",
+        "PART_REMOVED",
+        "ACCIDENT_REPAIR_RECORDED",
         "CONFIGURATION_INSPECTED",
         "REGISTRATION_UPDATED",
-        "PART_REMOVED",
+        "INSURANCE_NOTIFIED",
         "OWNERSHIP_TRANSFERRED"
       ],
-      "description": "本领域事件类型"
+      "description": "本领域事件类型：零部件认证、证书撤销、安装、拆除复原、事故维修、检测、登记告知、保险告知、所有权变更"
     },
     "aggregate_type": {
       "type": "string",
@@ -37,12 +41,12 @@
         "inspection_finding",
         "ownership_transfer"
       ],
-      "description": "业务对象类型"
+      "description": "业务对象类型。绑定关系：PART_CERTIFIED/CERTIFICATE_REVOKED→certified_part；PART_INSTALLED/PART_REMOVED/ACCIDENT_REPAIR_RECORDED/REGISTRATION_UPDATED/INSURANCE_NOTIFIED→vehicle_configuration；CONFIGURATION_INSPECTED→inspection_finding；OWNERSHIP_TRANSFERRED→ownership_transfer"
     },
     "aggregate_id": {
       "type": "string",
       "minLength": 1,
-      "description": "业务对象标识"
+      "description": "业务对象标识。vehicle_configuration 聚合的 aggregate_id 即车辆标识"
     },
     "occurred_at": {
       "type": "string",
@@ -52,12 +56,25 @@
     "version": {
       "type": "integer",
       "minimum": 1,
-      "description": "对象版本"
+      "description": "对象版本，从 1 开始递增"
     },
     "summary": {
       "type": "string",
       "minLength": 2,
       "description": "中文事实摘要"
+    },
+    "fact_key": {
+      "type": "string",
+      "minLength": 1,
+      "description": "可选。多方就同一事实各自重报时共用的事实键，用于跨来源去重"
+    },
+    "source": {
+      "type": "string",
+      "description": "上报方标识，用于记录同一事实的多个来源"
+    },
+    "payload": {
+      "type": "object",
+      "description": "事件负载。约定：车辆事件用 payload.odometer_km 锚定不可变里程节点；PART_INSTALLED 携带 installation_id/part_id/certificate_id/workshop_id/technician/calibration；检测、登记、保险事件用 covers_part_ids 标明覆盖部件，缺省视为整车范围；OWNERSHIP_TRANSFERRED 携带 vehicle_id/from_owner/to_owner"
     }
   },
   "additionalProperties": true
