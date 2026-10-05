@@ -21,13 +21,21 @@
     "event_type": {
       "type": "string",
       "enum": [
+        "PART_CERTIFIED",
+        "CERTIFICATE_REVOKED",
         "PART_INSTALLED",
+        "INSTALLATION_CALIBRATED",
+        "ODOMETER_RECORDED",
         "CONFIGURATION_INSPECTED",
         "REGISTRATION_UPDATED",
+        "INSURANCE_NOTIFIED",
+        "ACCIDENT_REPAIRED",
+        "PART_REPLACED",
         "PART_REMOVED",
+        "CONFIGURATION_RESTORED",
         "OWNERSHIP_TRANSFERRED"
       ],
-      "description": "本领域事件类型"
+      "description": "本领域事件类型，覆盖零部件认证、安装标定、检测、登记与保险告知、事故维修、替换拆除、复原与所有权变更"
     },
     "aggregate_type": {
       "type": "string",
@@ -58,6 +66,10 @@
       "type": "string",
       "minLength": 2,
       "description": "中文事实摘要"
+    },
+    "payload": {
+      "type": "object",
+      "description": "事件负载，各事件类型的必备字段见 README 与 src/domain.js"
     }
   },
   "additionalProperties": true

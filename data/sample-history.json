@@ -1,0 +1,274 @@
+[
+  {
+    "event_id": "evt-rv002-0001",
+    "event_type": "PART_CERTIFIED",
+    "aggregate_type": "certified_part",
+    "aggregate_id": "part-suspension-a1",
+    "occurred_at": "2026-03-01T09:00:00+08:00",
+    "version": 1,
+    "summary": "悬架套件取得零部件认证",
+    "payload": {
+      "part_id": "part-suspension-a1",
+      "category": "悬架",
+      "manufacturer": "工坊甲",
+      "certificate": {
+        "cert_id": "cert-sus-001",
+        "issuer": "某认证机构",
+        "standard": "GB-XXXX",
+        "scope": "限定总质量不超过3.5t的旅居车",
+        "valid_from": "2026-01-01",
+        "valid_until": "2028-01-01"
+      }
+    }
+  },
+  {
+    "event_id": "evt-rv002-0002",
+    "event_type": "PART_CERTIFIED",
+    "aggregate_type": "certified_part",
+    "aggregate_id": "part-electrical-b2",
+    "occurred_at": "2026-03-02T09:00:00+08:00",
+    "version": 1,
+    "summary": "电气系统取得零部件认证",
+    "payload": {
+      "part_id": "part-electrical-b2",
+      "category": "电气",
+      "manufacturer": "工坊乙",
+      "certificate": {
+        "cert_id": "cert-ele-002",
+        "issuer": "某认证机构",
+        "standard": "GB-YYYY",
+        "scope": "限定12V低压改装",
+        "valid_from": "2026-01-01",
+        "valid_until": "2027-06-01"
+      }
+    }
+  },
+  {
+    "event_id": "evt-rv002-0003",
+    "event_type": "PART_CERTIFIED",
+    "aggregate_type": "certified_part",
+    "aggregate_id": "part-bodykit-c3",
+    "occurred_at": "2026-03-03T09:00:00+08:00",
+    "version": 1,
+    "summary": "外观套件取得零部件认证",
+    "payload": {
+      "part_id": "part-bodykit-c3",
+      "category": "外观套件",
+      "manufacturer": "工坊丙",
+      "certificate": {
+        "cert_id": "cert-kit-003",
+        "issuer": "某认证机构",
+        "standard": "GB-ZZZZ",
+        "scope": "限定不改变车辆外廓尺寸",
+        "valid_from": "2026-01-01",
+        "valid_until": "2027-03-01"
+      }
+    }
+  },
+  {
+    "event_id": "evt-rv002-0004",
+    "event_type": "OWNERSHIP_TRANSFERRED",
+    "aggregate_type": "ownership_transfer",
+    "aggregate_id": "vehicle-rv-002",
+    "occurred_at": "2026-04-01T10:00:00+08:00",
+    "version": 1,
+    "summary": "二手车商甲将房车交付王某",
+    "payload": {
+      "vehicle_id": "vehicle-rv-002",
+      "from_owner": "二手车商甲",
+      "to_owner": "王某",
+      "transfer_doc_ref": "doc-transfer-001"
+    }
+  },
+  {
+    "event_id": "evt-rv002-0005",
+    "event_type": "PART_INSTALLED",
+    "aggregate_type": "vehicle_configuration",
+    "aggregate_id": "vehicle-rv-002",
+    "occurred_at": "2026-04-10T14:00:00+08:00",
+    "version": 1,
+    "summary": "工坊甲安装悬架套件",
+    "payload": {
+      "installation_id": "inst-sus-01",
+      "part_id": "part-suspension-a1",
+      "cert_id": "cert-sus-001",
+      "technician": { "tech_id": "tech-a01", "name": "张工", "qualification": "改装资质二级" },
+      "work": { "shop": "工坊甲", "description": "悬架套件安装与四轮定位", "performed_at": "2026-04-10" }
+    }
+  },
+  {
+    "event_id": "evt-rv002-0006",
+    "event_type": "PART_INSTALLED",
+    "aggregate_type": "vehicle_configuration",
+    "aggregate_id": "vehicle-rv-002",
+    "occurred_at": "2026-04-12T14:00:00+08:00",
+    "version": 2,
+    "summary": "工坊乙安装电气系统",
+    "payload": {
+      "installation_id": "inst-ele-01",
+      "part_id": "part-electrical-b2",
+      "cert_id": "cert-ele-002",
+      "technician": { "tech_id": "tech-b02", "name": "李工", "qualification": "电工特种作业证" },
+      "work": { "shop": "工坊乙", "description": "低压电气系统布线与安装", "performed_at": "2026-04-12" }
+    }
+  },
+  {
+    "event_id": "evt-rv002-0007",
+    "event_type": "PART_INSTALLED",
+    "aggregate_type": "vehicle_configuration",
+    "aggregate_id": "vehicle-rv-002",
+    "occurred_at": "2026-04-15T14:00:00+08:00",
+    "version": 3,
+    "summary": "工坊丙安装外观套件",
+    "payload": {
+      "installation_id": "inst-kit-01",
+      "part_id": "part-bodykit-c3",
+      "cert_id": "cert-kit-003",
+      "technician": { "tech_id": "tech-c03", "name": "王工", "qualification": "车身改装资质" },
+      "work": { "shop": "工坊丙", "description": "外观套件安装", "performed_at": "2026-04-15" }
+    }
+  },
+  {
+    "event_id": "evt-rv002-0008",
+    "event_type": "INSTALLATION_CALIBRATED",
+    "aggregate_type": "vehicle_configuration",
+    "aggregate_id": "vehicle-rv-002",
+    "occurred_at": "2026-04-16T10:00:00+08:00",
+    "version": 4,
+    "summary": "电气系统完成标定",
+    "payload": {
+      "installation_id": "inst-ele-01",
+      "part_id": "part-electrical-b2",
+      "calibration": { "method": "低压负载标定", "performed_at": "2026-04-16", "result_ref": "cal-ele-001" }
+    }
+  },
+  {
+    "event_id": "evt-rv002-0009",
+    "event_type": "INSTALLATION_CALIBRATED",
+    "aggregate_type": "vehicle_configuration",
+    "aggregate_id": "vehicle-rv-002",
+    "occurred_at": "2026-04-17T10:00:00+08:00",
+    "version": 5,
+    "summary": "外观套件完成标定",
+    "payload": {
+      "installation_id": "inst-kit-01",
+      "part_id": "part-bodykit-c3",
+      "calibration": { "method": "外廓尺寸复核", "performed_at": "2026-04-17", "result_ref": "cal-kit-001" }
+    }
+  },
+  {
+    "event_id": "evt-rv002-0010",
+    "event_type": "ODOMETER_RECORDED",
+    "aggregate_type": "vehicle_configuration",
+    "aggregate_id": "vehicle-rv-002",
+    "occurred_at": "2026-04-30T09:00:00+08:00",
+    "version": 6,
+    "summary": "记录里程节点 45230 公里",
+    "payload": { "checkpoint_id": "odo-2026-0430", "mileage": 45230, "unit": "km" }
+  },
+  {
+    "event_id": "evt-rv002-0011",
+    "event_type": "CONFIGURATION_INSPECTED",
+    "aggregate_type": "inspection_finding",
+    "aggregate_id": "insp-2026-0510",
+    "occurred_at": "2026-05-10T15:00:00+08:00",
+    "version": 1,
+    "summary": "检测机构覆盖悬架与电气的检测",
+    "payload": {
+      "vehicle_id": "vehicle-rv-002",
+      "inspection_id": "insp-2026-0510",
+      "inspector": "某检测机构",
+      "covers": ["inst-sus-01", "inst-ele-01"],
+      "report_ref": "report-2026-0510",
+      "result_summary": "悬架与电气安装组合在报告范围内"
+    }
+  },
+  {
+    "event_id": "evt-rv002-0012",
+    "event_type": "REGISTRATION_UPDATED",
+    "aggregate_type": "vehicle_configuration",
+    "aggregate_id": "vehicle-rv-002",
+    "occurred_at": "2026-05-15T11:00:00+08:00",
+    "version": 7,
+    "summary": "三项改装完成登记告知",
+    "payload": {
+      "covers": ["inst-sus-01", "inst-ele-01", "inst-kit-01"],
+      "authority_ref": "reg-auth-001",
+      "notice_ref": "reg-notice-001"
+    }
+  },
+  {
+    "event_id": "evt-rv002-0013",
+    "event_type": "INSURANCE_NOTIFIED",
+    "aggregate_type": "vehicle_configuration",
+    "aggregate_id": "vehicle-rv-002",
+    "occurred_at": "2026-05-16T11:00:00+08:00",
+    "version": 8,
+    "summary": "悬架与电气完成保险告知",
+    "payload": {
+      "covers": ["inst-sus-01", "inst-ele-01"],
+      "insurer_ref": "insurer-001",
+      "notice_ref": "ins-notice-001"
+    }
+  },
+  {
+    "event_id": "evt-rv002-0014",
+    "event_type": "ACCIDENT_REPAIRED",
+    "aggregate_type": "vehicle_configuration",
+    "aggregate_id": "vehicle-rv-002",
+    "occurred_at": "2026-06-01T10:00:00+08:00",
+    "version": 9,
+    "summary": "事故后检修电气线路",
+    "payload": {
+      "repair_id": "rep-2026-0601",
+      "affects": ["inst-ele-01"],
+      "description": "轻微追尾后检修电气线路并复检",
+      "shop": "工坊乙"
+    }
+  },
+  {
+    "event_id": "evt-rv002-0015",
+    "event_type": "ACCIDENT_REPAIRED",
+    "aggregate_type": "vehicle_configuration",
+    "aggregate_id": "vehicle-rv-002",
+    "occurred_at": "2026-06-20T10:00:00+08:00",
+    "version": 10,
+    "summary": "原厂保险杠喷漆",
+    "payload": {
+      "repair_id": "rep-2026-0620",
+      "affects": ["oem-bumper"],
+      "description": "原厂保险杠喷漆，与改装配置无关",
+      "shop": "某维修厂"
+    }
+  },
+  {
+    "event_id": "evt-rv002-0016",
+    "event_type": "CERTIFICATE_REVOKED",
+    "aggregate_type": "certified_part",
+    "aggregate_id": "part-bodykit-c3",
+    "occurred_at": "2026-09-01T09:00:00+08:00",
+    "version": 2,
+    "summary": "外观套件证书被认证机构撤销",
+    "payload": {
+      "part_id": "part-bodykit-c3",
+      "cert_id": "cert-kit-003",
+      "revoked_at": "2026-09-01T00:00:00+08:00",
+      "reason": "认证机构抽查不合格"
+    }
+  },
+  {
+    "event_id": "evt-rv002-0017",
+    "event_type": "OWNERSHIP_TRANSFERRED",
+    "aggregate_type": "ownership_transfer",
+    "aggregate_id": "vehicle-rv-002",
+    "occurred_at": "2026-09-20T12:00:00+08:00",
+    "version": 2,
+    "summary": "王某将房车转让给李某",
+    "payload": {
+      "vehicle_id": "vehicle-rv-002",
+      "from_owner": "王某",
+      "to_owner": "李某",
+      "transfer_doc_ref": "doc-transfer-002"
+    }
+  }
+]

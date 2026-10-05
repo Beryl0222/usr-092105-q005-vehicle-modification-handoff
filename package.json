@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "领域事件基础校验",
+  "description": "汽车改装合规交接平台：事件存储、配置投影、证据链评估与所有权交接",
   "scripts": {
     "test": "node --test"
   }
